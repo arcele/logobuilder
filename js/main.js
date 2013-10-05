@@ -38,6 +38,7 @@ function queryObj() {
 			Logo.letters.push([String.fromCharCode(65 + Math.floor(Math.random() * 26))]);
 		}
 		Logo.backStyle = backStyles[Math.floor(Math.random() * backStyles.length)];
+		Logo.offsetX = Math.floor(Math.random() * 50);
 	} else {
 		Logo.backColor = '#' + Logo.queryObj.backColor ? Logo.queryObj.backColor : '333';
 		Logo.fontColor = '#' + Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999';
@@ -45,6 +46,7 @@ function queryObj() {
 		Logo.backStyle = Logo.queryObj.backStyle ? Logo.queryObj.backStyle : 'blank';
 		Logo.stripeColor = '#' + (Logo.queryObj.foreColor ? Logo.queryObj.foreColor : Logo.backColor);
 		Logo.letters = Logo.queryObj.logoLetter.split("|");
+		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : 0;
 	}
 
 	Logo.url = 'http://' + window.location.hostname + '/?backColor=' + Logo.backColor+ '&fontColor=' + Logo.fontColor + '&fontStroke=' + Logo.fontStroke + '&backStyle=' + Logo.backStyle + '&stripeColor=' + Logo.stripeColor + '&logoLetter=' + Logo.letters.join('|');
@@ -142,11 +144,15 @@ function queryObj() {
 	Logo.kinetic.letters = new Array();
 	for(var i = Logo.letters.length-1; i >= 0; i--) {
 		var y = i * Logo.kinetic.stage.getHeight() * .1;
+		var x = 0;
+		if(Logo.letters.length > 1) {
+			x = (i == 0? -1 : 1) * Logo.offsetX * Logo.kinetic.stage.getWidth() / 200;
+		}
 		if(Logo.letters.length == 2) {
 			y  -= Logo.kinetic.stage.getHeight() * (i == 0? .1 : -.02);
 		}
 		var letter = new Kinetic.Text({
-			x: 0,
+			x: x,
 			y: y, 
 			width: Logo.kinetic.stage.getWidth(),
 			fill: Logo.fontColor,
