@@ -161,7 +161,7 @@ function queryObj() {
 			align: 'center',
 			fontStyle: 'bold',
 			strokeWidth: 2,
-			stroke: Logo.fontStroke,
+			stroke: Logo.fontStroke
 		});
 		Logo.kinetic.letters.push(letter);
 		Logo.kinetic.layer.add(letter);
