@@ -14,12 +14,12 @@ function queryObj() {
 	};
 
 	Logo.randomColor = function() {
-	var color = '#'
-	for(var i = 0; i < 3; i++) {
-		var r = Math.floor(Math.random() * 15);
-		color += r < 9 ? r : String.fromCharCode(65 + r - 9);
-	}
-	return color;
+		var color = '#'
+		for(var i = 0; i < 3; i++) {
+			var r = Math.floor(Math.random() * 15);
+			color += r < 9 ? r : String.fromCharCode(65 + r - 9);
+		}
+		return color;
 	};
 
 	Logo.queryObj = new queryObj();
@@ -161,7 +161,7 @@ function queryObj() {
 			align: 'center',
 			fontStyle: 'bold',
 			strokeWidth: 2,
-			stroke: Logo.fontStroke
+			stroke: Logo.fontStroke,
 		});
 		Logo.kinetic.letters.push(letter);
 		Logo.kinetic.layer.add(letter);
