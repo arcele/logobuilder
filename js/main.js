@@ -41,7 +41,6 @@ function queryObj() {
 		Logo.backStyle = Logo.backStyles[Math.floor(Math.random() * Logo.backStyles.length)];
 		Logo.offsetX = Math.floor(Math.random() * 50);
 		Logo.fontFamily = Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
-		console.log(Logo.fontFamily);
 	} else {
 		Logo.backColor = '#' + Logo.queryObj.backColor ? Logo.queryObj.backColor : '333';
 		Logo.fontColor = '#' + Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999';
