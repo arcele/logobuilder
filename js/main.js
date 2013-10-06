@@ -24,7 +24,8 @@ function queryObj() {
 
 	Logo.queryObj = new queryObj();
 
-	var backStyles = ['blank', 'striped', 'diag', 'exed', 'habs', 'roundel', 'dots'];
+	Logo.backStyles = new Array('blank', 'striped', 'diag', 'exed', 'habs', 'roundel', 'dots');
+	Logo.fontFamilies = new Array("Calibri", "Times New Roman", "Comic Sans MS", "Palatino Linotype", "Arial", "Helvetica", "Tahoma");
 
 	if(Object.keys(Logo.queryObj).length < 1 || Logo.queryObj.random) {
 		// ERMAGOD RANDOM LOGO
@@ -37,8 +38,10 @@ function queryObj() {
 		for(var i = 0; i < letterLength; i++) {
 			Logo.letters.push([String.fromCharCode(65 + Math.floor(Math.random() * 26))]);
 		}
-		Logo.backStyle = backStyles[Math.floor(Math.random() * backStyles.length)];
+		Logo.backStyle = Logo.backStyles[Math.floor(Math.random() * Logo.backStyles.length)];
 		Logo.offsetX = Math.floor(Math.random() * 50);
+		Logo.fontFamily = Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
+		console.log(Logo.fontFamily);
 	} else {
 		Logo.backColor = '#' + Logo.queryObj.backColor ? Logo.queryObj.backColor : '333';
 		Logo.fontColor = '#' + Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999';
@@ -47,6 +50,7 @@ function queryObj() {
 		Logo.stripeColor = '#' + (Logo.queryObj.foreColor ? Logo.queryObj.foreColor : Logo.backColor);
 		Logo.letters = Logo.queryObj.logoLetter.split("|");
 		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : 0;
+		Logo.fontFamily = Logo.queryObj.fontFamily ? Logo.queryObj.fontFamily : "Calibri";
 	}
 
 	Logo.url = 'http://' + window.location.hostname + '/?backColor=' + Logo.backColor+ '&fontColor=' + Logo.fontColor + '&fontStroke=' + Logo.fontStroke + '&backStyle=' + Logo.backStyle + '&stripeColor=' + Logo.stripeColor + '&logoLetter=' + Logo.letters.join('|');
@@ -140,7 +144,6 @@ function queryObj() {
 			}
 		}
 	}
-	
 	Logo.kinetic.letters = new Array();
 	for(var i = Logo.letters.length-1; i >= 0; i--) {
 		var y = i * Logo.kinetic.stage.getHeight() * .1;
@@ -156,6 +159,7 @@ function queryObj() {
 			y: y, 
 			width: Logo.kinetic.stage.getWidth(),
 			fill: Logo.fontColor,
+			fontFamily: Logo.fontFamily,
 			fontSize: Logo.kinetic.stage.getHeight() - 25,
 			text: Logo.letters[i],
 			align: 'center',
