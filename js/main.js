@@ -62,6 +62,7 @@ function queryObj() {
 		'&offsetX=' + Logo.offsetX +
 		'&fontFamily=' + encodeURIComponent(Logo.fontFamily);
   
+
 	Logo.kinetic = {}; // All kinetic object references go in here
 
 	Logo.kinetic.stage = new Kinetic.Stage( {
@@ -198,5 +199,12 @@ function queryObj() {
 	Logo.kinetic.layer.add(Logo.kinetic.gloss);
 
 	Logo.kinetic.stage.add(Logo.kinetic.layer);
+
+	Logo.image = Logo.kinetic.stage.toDataURL({
+		callback: function(dataUrl) {
+			console.log(dataUrl);
+		}
+	});
+
 
 })();
