@@ -46,13 +46,21 @@ function queryObj() {
 		Logo.fontColor = '#' + (Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999');
 		Logo.fontStroke = '#' + (Logo.queryObj.fontStroke ? Logo.queryObj.fontStroke : Logo.backColor);
 		Logo.backStyle = Logo.queryObj.backStyle ? Logo.queryObj.backStyle : 'blank';
-		Logo.stripeColor = '#' + (Logo.queryObj.foreColor ? Logo.queryObj.foreColor : Logo.backColor);
+		Logo.stripeColor = '#' + (Logo.queryObj.stripeColor ? Logo.queryObj.stripeColor : Logo.backColor);
 		Logo.letters = Logo.queryObj.logoLetter.split("|");
 		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : 0;
 		Logo.fontFamily = Logo.queryObj.fontFamily ? Logo.queryObj.fontFamily : "Calibri";
 	}
 
-	Logo.url = 'http://' + window.location.hostname + '/?backColor=' + Logo.backColor+ '&fontColor=' + Logo.fontColor + '&fontStroke=' + Logo.fontStroke + '&backStyle=' + Logo.backStyle + '&stripeColor=' + Logo.stripeColor + '&logoLetter=' + Logo.letters.join('|');
+	Logo.url = 'http://' + window.location.hostname + 
+		'/?backColor=' + Logo.backColor.replace("#",'') + 
+		'&fontColor=' + Logo.fontColor.replace("#","") + 
+		'&fontStroke=' + Logo.fontStroke.replace("#","") + 
+		'&backStyle=' + Logo.backStyle + 
+		'&stripeColor=' + Logo.stripeColor.replace("#","") + 
+		'&logoLetter=' + Logo.letters.join('|') +
+		'&offsetX=' + Logo.offsetX +
+		'&fontFamily=' + encodeURIComponent(Logo.fontFamily);
   
 	Logo.kinetic = {}; // All kinetic object references go in here
 
