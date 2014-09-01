@@ -42,8 +42,8 @@ function queryObj() {
 		Logo.offsetX = Math.floor(Math.random() * 50);
 		Logo.fontFamily = Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
 	} else {
-		Logo.backColor = '#' + Logo.queryObj.backColor ? Logo.queryObj.backColor : '333';
-		Logo.fontColor = '#' + Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999';
+		Logo.backColor = '#' + (Logo.queryObj.backColor ? Logo.queryObj.backColor : '333');
+		Logo.fontColor = '#' + (Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999');
 		Logo.fontStroke = '#' + (Logo.queryObj.fontStroke ? Logo.queryObj.fontStroke : Logo.backColor);
 		Logo.backStyle = Logo.queryObj.backStyle ? Logo.queryObj.backStyle : 'blank';
 		Logo.stripeColor = '#' + (Logo.queryObj.foreColor ? Logo.queryObj.foreColor : Logo.backColor);
