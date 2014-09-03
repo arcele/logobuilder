@@ -28,7 +28,6 @@ function queryObj() {
 	Logo.fontFamilies = new Array("Calibri", "Times New Roman", "Comic Sans MS", "Palatino Linotype", "Arial", "Helvetica", "Tahoma");
 
 	if(Object.keys(Logo.queryObj).length < 1 || Logo.queryObj.random) {
-		// ERMAGOD RANDOM LOGO
 		Logo.backColor = Logo.randomColor();
 		Logo.fontColor = Logo.randomColor();
 		Logo.fontStroke = Logo.backColor;
