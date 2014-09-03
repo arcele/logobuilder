@@ -28,8 +28,8 @@ function queryObj() {
 	Logo.fontFamilies = new Array("Calibri", "Times New Roman", "Comic Sans MS", "Palatino Linotype", "Arial", "Helvetica", "Tahoma");
 
 	Logo.letters = new Array();
-		if(queryObj.letters != null) {
-			queryObj = Logo.queryObj.letters.split("|");
+		if(Logo.queryObj.letters) {
+			Logo.letters = Logo.queryObj.letters.split("|");
 		} else {
 			var letterLength = 1 + Math.floor(Math.random() * 2);
 			for(var i = 0; i < letterLength; i++) {
