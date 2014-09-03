@@ -184,8 +184,8 @@ function queryObj() {
 			context.closePath();
 			canvas.fillStroke(this);
 		},
-		fill: "cecece",
-		opacity: .25
+		fill: "f8f8f0",
+		opacity: .10
 	});
 
 	Logo.kinetic.layer.add(Logo.kinetic.gloss);
