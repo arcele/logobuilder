@@ -50,7 +50,7 @@ function queryObj() {
 		'&fontStroke=' + Logo.fontStroke + 
 		'&backStyle=' + Logo.backStyle + 
 		'&stripeColor=' + Logo.stripeColor + 
-		'&logoLetter=' + Logo.letters.join('|') +
+		'&letters=' + Logo.letters.join('|') +
 		'&offsetX=' + Logo.offsetX +
 		'&fontFamily=' + encodeURIComponent(Logo.fontFamily);
   
