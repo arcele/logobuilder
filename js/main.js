@@ -14,7 +14,7 @@ function queryObj() {
 	};
 
 	Logo.randomColor = function() {
-		var color = '#'
+		var color = ''
 		for(var i = 0; i < 3; i++) {
 			var r = Math.floor(Math.random() * 15);
 			color += r < 9 ? r : String.fromCharCode(65 + r - 9);
@@ -41,22 +41,22 @@ function queryObj() {
 		Logo.offsetX = Math.floor(Math.random() * 50);
 		Logo.fontFamily = Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
 	} else {
-		Logo.backColor = '#' + (Logo.queryObj.backColor ? Logo.queryObj.backColor : '333');
-		Logo.fontColor = '#' + (Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999');
-		Logo.fontStroke = '#' + (Logo.queryObj.fontStroke ? Logo.queryObj.fontStroke : Logo.backColor);
+		Logo.backColor = Logo.queryObj.backColor ? Logo.queryObj.backColor : '333';
+		Logo.fontColor = Logo.queryObj.fontColor ? Logo.queryObj.fontColor : '999';
+		Logo.fontStroke = Logo.queryObj.fontStroke ? Logo.queryObj.fontStroke : Logo.backColor;
 		Logo.backStyle = Logo.queryObj.backStyle ? Logo.queryObj.backStyle : 'blank';
-		Logo.stripeColor = '#' + (Logo.queryObj.stripeColor ? Logo.queryObj.stripeColor : Logo.backColor);
+		Logo.stripeColor = Logo.queryObj.stripeColor ? Logo.queryObj.stripeColor : Logo.backColor;
 		Logo.letters = Logo.queryObj.logoLetter.split("|");
 		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : 0;
 		Logo.fontFamily = Logo.queryObj.fontFamily ? Logo.queryObj.fontFamily : "Calibri";
 	}
 
 	Logo.url = 'http://' + window.location.hostname + 
-		'/?backColor=' + Logo.backColor.replace("#",'') + 
-		'&fontColor=' + Logo.fontColor.replace("#","") + 
-		'&fontStroke=' + Logo.fontStroke.replace("#","") + 
+		'/?backColor=' + Logo.backColor + 
+		'&fontColor=' + Logo.fontColor + 
+		'&fontStroke=' + Logo.fontStroke + 
 		'&backStyle=' + Logo.backStyle + 
-		'&stripeColor=' + Logo.stripeColor.replace("#","") + 
+		'&stripeColor=' + Logo.stripeColor + 
 		'&logoLetter=' + Logo.letters.join('|') +
 		'&offsetX=' + Logo.offsetX +
 		'&fontFamily=' + encodeURIComponent(Logo.fontFamily);
@@ -77,7 +77,7 @@ function queryObj() {
 		y:0,
 		width: Logo.kinetic.stage.getWidth(),
 		height: Logo.kinetic.stage.getHeight(),
-		fill: Logo.backColor
+		fill: '#' + Logo.backColor
 	});
 	
 	Logo.kinetic.layer.add(Logo.kinetic.wrapper);
@@ -89,7 +89,7 @@ function queryObj() {
 			var x = (i % 2 == 0)? Logo.kinetic.stage.getWidth() * .2 : Logo.kinetic.stage.getWidth() - (Logo.kinetic.stage.getWidth() * .2);
 			var stripe = new Kinetic.Line({
 				points: [ x, 0, x, Logo.kinetic.stage.getHeight() ],
-				stroke: Logo.stripeColor,
+				stroke: '#' + Logo.stripeColor,
 				strokeWidth: Logo.kinetic.stage.getWidth() * .1
 			});
 			Logo.kinetic.stripes.push(stripe);
@@ -101,7 +101,7 @@ function queryObj() {
 		for(var i = 0; i < count; i++) {
 			var stripe = new Kinetic.Line({
 				points: (i % 2 == 0) ? [0, 0, Logo.kinetic.stage.getWidth(), Logo.kinetic.stage.getHeight()] : [0, Logo.kinetic.stage.getHeight(), Logo.kinetic.stage.getWidth(), 0],
-				stroke: Logo.stripeColor,
+				stroke: '#' + Logo.stripeColor,
 				strokeWidth: Logo.kinetic.stage.getWidth() * .2
 			});
 			Logo.kinetic.stripes.push(stripe);
@@ -111,7 +111,7 @@ function queryObj() {
 	if(Logo.backStyle == 'habs') {
 		var stripe = new Kinetic.Line({
 			points: [0, Logo.kinetic.stage.getHeight() * .5, Logo.kinetic.stage.getWidth(), Logo.kinetic.stage.getHeight() * .5],
-			stroke: Logo.stripeColor,
+			stroke: '#' + Logo.stripeColor,
 			strokeWidth: Logo.kinetic.stage.getWidth() * .25
 		});
 		Logo.kinetic.stripes.push(stripe);
@@ -121,7 +121,7 @@ function queryObj() {
 		var circle = new Kinetic.Circle({
 			x: Logo.kinetic.stage.getWidth() * .5,
 			y: Logo.kinetic.stage.getHeight() * .5,
-			fill: Logo.stripeColor,
+			fill: '#' + Logo.stripeColor,
 			radius: Math.min(Logo.kinetic.stage.getWidth(), Logo.kinetic.stage.getHeight()) * .2
 		});
 		Logo.kinetic.stripes.push(circle);
@@ -132,7 +132,7 @@ function queryObj() {
 			y: Logo.kinetic.stage.getHeight() * .5,
 			strokeWidth: Logo.kinetic.stage.getWidth() * .15,
 			radius: Math.min(Logo.kinetic.stage.getWidth(), Logo.kinetic.stage.getHeight()) * .4,
-			stroke: Logo.stripeColor
+			stroke: '#' + Logo.stripeColor
 		});
 		Logo.kinetic.stripes.push(circle);
 		Logo.kinetic.layer.add(circle);
@@ -144,7 +144,7 @@ function queryObj() {
 					x: (Logo.kinetic.stage.getWidth() / 3*( i )) + ((j%2) * Logo.kinetic.stage.getWidth()/6),
 					y: Logo.kinetic.stage.getHeight() / 3 * (j ),
 					radius: Math.min(Logo.kinetic.stage.getWidth(), Logo.kinetic.stage.getHeight()) * .1,
-					fill: Logo.stripeColor
+					fill: '#' + Logo.stripeColor
 				});
 				Logo.kinetic.stripes.push(circle);
 				Logo.kinetic.layer.add(circle);
@@ -165,14 +165,14 @@ function queryObj() {
 			x: x,
 			y: y, 
 			width: Logo.kinetic.stage.getWidth(),
-			fill: Logo.fontColor,
+			fill: '#' + Logo.fontColor,
 			fontFamily: Logo.fontFamily,
 			fontSize: Logo.kinetic.stage.getHeight() - 25,
 			text: Logo.letters[i],
 			align: 'center',
 			fontStyle: 'bold',
 			strokeWidth: 2,
-			stroke: Logo.fontStroke
+			stroke: '#' + Logo.fontStroke
 		});
 		Logo.kinetic.letters.push(letter);
 		Logo.kinetic.layer.add(letter);
