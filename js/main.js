@@ -199,9 +199,18 @@ function queryObj() {
 
 	Logo.kinetic.stage.add(Logo.kinetic.layer);
 
-	Logo.image = Logo.kinetic.stage.toDataURL({
-		callback: function(dataUrl) {
-			console.log(dataUrl);
+
+
+	Logo.kinetic.stage.toDataURL({
+		callback: function(dataUrl,scp) {
+			query = new queryObj();
+			if(query.mode == 'png') {
+				pngLogo = new Image();
+				pngLogo.src = dataUrl;
+				console.log(dataUrl)
+				$('#logo').css("display", "none");
+				$('body').append(pngLogo);
+			}
 		}
 	});
 
