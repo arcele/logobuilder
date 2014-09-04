@@ -183,8 +183,14 @@ function queryObj() {
 			context.quadraticCurveTo(borderSize, Logo.kinetic.stage.getWidth() * .5, borderSize, Logo.kinetic.stage.getWidth() * .6);
 			context.closePath();
 			canvas.fillStroke(this);
+			// Gradient fill
+			var grd = context.createLinearGradient(0, 0, Logo.kinetic.stage.getWidth()/2, Logo.kinetic.stage.getHeight());
+			grd.addColorStop(0, '#bbb');   
+			grd.addColorStop(1, '#f8f8f0');
+			context.fillStyle = grd;
+			context.fill()
+	
 		},
-		fill: "f8f8f0",
 		opacity: .10
 	});
 
