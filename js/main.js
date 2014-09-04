@@ -24,7 +24,7 @@ function queryObj() {
 
 	Logo.queryObj = new queryObj();
 
-	Logo.backStyles = new Array('blank', 'striped', 'diag', 'exed', 'habs', 'roundel', 'dots');
+	Logo.backStyles = new Array('blank', 'striped', 'diag', 'exed', 'habs', 'roundel', 'dots', 'vertical', 'horizontal');
 	Logo.fontFamilies = new Array("Calibri", "Times New Roman", "Comic Sans MS", "Palatino Linotype", "Arial", "Helvetica", "Tahoma");
 
 	Logo.letters = new Array();
