@@ -110,6 +110,28 @@ function queryObj() {
 		Logo.kinetic.stripes.push(stripe);
 		Logo.kinetic.layer.add(stripe);
 	}
+	if(Logo.backStyle == "horizontal") {
+		for(var i = 0; i <= 3; i++) {
+			var stripe = new Kinetic.Line({
+				points: [0, i * (Logo.kinetic.stage.getWidth() / 3), Logo.kinetic.stage.getHeight(), i * (Logo.kinetic.stage.getWidth() / 3)],
+				stroke: '#' + Logo.stripeColor,
+				strokeWidth: Logo.kinetic.stage.getWidth() / 6
+			});
+			Logo.kinetic.stripes.push(stripe);
+			Logo.kinetic.layer.add(stripe);
+		}
+	}
+	if(Logo.backStyle == "vertical") {
+		for(var i = 0; i <= 4; i++) {
+			var stripe = new Kinetic.Line({
+				points: [i * (Logo.kinetic.stage.getWidth() / 4), 0, i * (Logo.kinetic.stage.getWidth() / 4),Logo.kinetic.stage.getHeight()],
+				stroke: '#' + Logo.stripeColor,
+				strokeWidth: Logo.kinetic.stage.getWidth() / 8
+			});
+			Logo.kinetic.stripes.push(stripe);
+			Logo.kinetic.layer.add(stripe);
+		}
+	}
 	if(Logo.backStyle == 'roundel') {
 		var circle = new Kinetic.Circle({
 			x: Logo.kinetic.stage.getWidth() * .5,
@@ -189,7 +211,6 @@ function queryObj() {
 			grd.addColorStop(1, '#f8f8f0');
 			context.fillStyle = grd;
 			context.fill()
-	
 		},
 		opacity: .10
 	});
