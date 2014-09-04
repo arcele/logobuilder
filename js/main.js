@@ -192,17 +192,14 @@ function queryObj() {
 
 	Logo.kinetic.stage.add(Logo.kinetic.layer);
 
-
-
 	Logo.kinetic.stage.toDataURL({
-		callback: function(dataUrl,scp) {
+		callback: function(dataUrl) {
 			query = new queryObj();
 			if(query.mode == 'png') {
 				pngLogo = new Image();
 				pngLogo.src = dataUrl;
-				console.log(dataUrl)
-				$('#logo').css("display", "none");
-				$('body').append(pngLogo);
+				console.log('dataUrl:'+dataUrl);
+				$('#logo').replaceWith(pngLogo);
 			}
 		}
 	});
