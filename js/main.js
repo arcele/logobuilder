@@ -207,7 +207,7 @@ function queryObj() {
 			canvas.fillStroke(this);
 			// Gradient fill
 			var grd = context.createLinearGradient(0, 0, Logo.kinetic.stage.getWidth()/2, Logo.kinetic.stage.getHeight());
-			grd.addColorStop(0, '#bbb');   
+			grd.addColorStop(0, '#a03');   
 			grd.addColorStop(1, '#f8f8f0');
 			context.fillStyle = grd;
 			context.fill()
