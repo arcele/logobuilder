@@ -113,7 +113,7 @@ function queryObj() {
 	if(Logo.backStyle == "horizontal") {
 		for(var i = 0; i <= 3; i++) {
 			var stripe = new Kinetic.Line({
-				points: [0, i * (Logo.kinetic.stage.getWidth() / 3), Logo.kinetic.stage.getHeight(), i * (Logo.kinetic.stage.getWidth() / 3)],
+				points: [0, i * (Logo.kinetic.stage.getWidth() / 3), Logo.kinetic.stage.getWidth(), i * (Logo.kinetic.stage.getWidth() / 3)],
 				stroke: '#' + Logo.stripeColor,
 				strokeWidth: Logo.kinetic.stage.getWidth() / 6
 			});
