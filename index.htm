@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>HTML5 Logo Builder</title>
     <link rel="stylesheet" charset="utf-8" href="css/styles.css" />
+    <script>
+    function newLogo() {
+      document.getElementById('embed').src = document.getElementById('embed').src;
+    }
+    </script>
   </head>
   <body>
-    <iframe class="embed" src="embed.htm" />
+    <iframe id="embed" src="embed.htm"></iframe>
+    <div id="refresh" onClick=newLogo()>&#x21bb;</div>
   </body>
 </html>
