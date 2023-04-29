@@ -44,16 +44,15 @@ function queryObj() {
 		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : (Logo.letters.length > 1? (Math.random() * 50) : 0);
 		Logo.fontFamily = Logo.queryObj.fontFamily ? Logo.queryObj.fontFamily : Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
 
-	Logo.url = 'http://' + window.location.hostname + 
-		'/?backColor=' + Logo.backColor + 
-		'&fontColor=' + Logo.fontColor + 
-		'&fontStroke=' + Logo.fontStroke + 
-		'&backStyle=' + Logo.backStyle + 
-		'&stripeColor=' + Logo.stripeColor + 
+	Logo.url = 'http://' + window.location.hostname +
+		'/?backColor=' + Logo.backColor +
+		'&fontColor=' + Logo.fontColor +
+		'&fontStroke=' + Logo.fontStroke +
+		'&backStyle=' + Logo.backStyle +
+		'&stripeColor=' + Logo.stripeColor +
 		'&letters=' + Logo.letters.join('|') +
 		'&offsetX=' + Logo.offsetX +
 		'&fontFamily=' + encodeURIComponent(Logo.fontFamily);
-  
 
 	Logo.kinetic = {}; // All kinetic object references go in here
 
@@ -72,7 +71,7 @@ function queryObj() {
 		height: Logo.kinetic.stage.getHeight(),
 		fill: '#' + Logo.backColor
 	});
-	
+
 	Logo.kinetic.layer.add(Logo.kinetic.wrapper);
 
 	Logo.kinetic.stripes = new Array();
@@ -141,7 +140,7 @@ function queryObj() {
 		});
 		Logo.kinetic.stripes.push(circle);
 		Logo.kinetic.layer.add(circle);
-	 
+
 		var circle = new Kinetic.Circle({
 			x: Logo.kinetic.stage.getWidth() * .5,
 			y: Logo.kinetic.stage.getHeight() * .5,
@@ -168,17 +167,19 @@ function queryObj() {
 	}
 	Logo.kinetic.letters = new Array();
 	for(var i = Logo.letters.length-1; i >= 0; i--) {
-		var y = i * Logo.kinetic.stage.getHeight() * .1;
+		var y = i * Logo.kinetic.stage.getHeight() * .1; // bump down second letter
 		var x = 0;
 		if(Logo.letters.length > 1) {
-			x = (i == 0? -1 : 1) * Logo.offsetX * Logo.kinetic.stage.getWidth() / 200;
+			x = (i == 0? -1 : 1) * Logo.offsetX * Logo.kinetic.stage.getWidth() / 200; // seperate 2 letters left/right
 		}
 		if(Logo.letters.length == 2) {
-			y  -= Logo.kinetic.stage.getHeight() * (i == 0? .1 : -.02);
+			y  += Logo.kinetic.stage.getHeight() * (i == 0? .015 : .1);
+		} else {
+			y = Logo.kinetic.stage.getHeight() * .075;
 		}
 		var letter = new Kinetic.Text({
 			x: x,
-			y: y, 
+			y: y,
 			width: Logo.kinetic.stage.getWidth(),
 			fill: '#' + Logo.fontColor,
 			fontFamily: Logo.fontFamily,
@@ -193,7 +194,7 @@ function queryObj() {
 		Logo.kinetic.layer.add(letter);
 	}
 
-     Logo.kinetic.gloss = new Kinetic.Shape({
+  Logo.kinetic.gloss = new Kinetic.Shape({
 		drawFunc: function(canvas) {
 			var borderSize = Logo.kinetic.stage.getWidth() * .03;
 			var context = canvas.getContext();
@@ -207,7 +208,7 @@ function queryObj() {
 			canvas.fillStroke(this);
 			// Gradient fill
 			var grd = context.createLinearGradient(0, 0, Logo.kinetic.stage.getWidth()/2, Logo.kinetic.stage.getHeight());
-			grd.addColorStop(0, '#a03');   
+			grd.addColorStop(0, '#a03');
 			grd.addColorStop(1, '#f8f8f0');
 			context.fillStyle = grd;
 			context.fill()
@@ -230,6 +231,6 @@ function queryObj() {
 			}
 		}
 	});
-
+	console.log("Logo:", Logo)
 
 })();
