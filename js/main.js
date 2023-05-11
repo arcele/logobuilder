@@ -44,7 +44,7 @@ function generateLogo() {
 		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : (Logo.letters.length > 1? (Math.random() * 50) : 0);
 		Logo.fontFamily = Logo.queryObj.fontFamily ? Logo.queryObj.fontFamily : Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
 
-	Logo.url = 'embed.htm/?backColor=' + Logo.backColor +
+	Logo.url = 'embed.htm?backColor=' + Logo.backColor +
 		'&fontColor=' + Logo.fontColor +
 		'&fontStroke=' + Logo.fontStroke +
 		'&backStyle=' + Logo.backStyle +
@@ -231,6 +231,6 @@ function generateLogo() {
 		}
 	});
 	console.log("Logo:", Logo)
-
+  document.getElementById("url").innerHTML = '<a target="_logo" href="' + Logo.url + '">Logo Link</a>'
 };
 generateLogo();

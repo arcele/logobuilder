@@ -1,3 +1,4 @@
-body { background-color:#e0e0e0; }
+body { background-color:#e0e0e0; font-family: Arial }
 #logo { width: 275px; height: 275px; border: none; margin: auto; display: block; }
+#url { margin: auto; text-align: center; }
 #refresh { font-size:25pt; width:75px; text-align:center; margin:auto; display:block; font-weight:100; cursor: pointer; color:#888; user-select: none; }
