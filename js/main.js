@@ -8,7 +8,7 @@ function queryObj() {
 	return result;
 }
 
-(function () {
+function generateLogo() {
 
 	Logo = {
 	};
@@ -44,8 +44,7 @@ function queryObj() {
 		Logo.offsetX = Logo.queryObj.offsetX? Logo.queryObj.offsetX : (Logo.letters.length > 1? (Math.random() * 50) : 0);
 		Logo.fontFamily = Logo.queryObj.fontFamily ? Logo.queryObj.fontFamily : Logo.fontFamilies[Math.floor(Math.random() * Logo.fontFamilies.length)];
 
-	Logo.url = 'http://' + window.location.hostname +
-		'/?backColor=' + Logo.backColor +
+	Logo.url = 'embed.htm/?backColor=' + Logo.backColor +
 		'&fontColor=' + Logo.fontColor +
 		'&fontStroke=' + Logo.fontStroke +
 		'&backStyle=' + Logo.backStyle +
@@ -233,4 +232,5 @@ function queryObj() {
 	});
 	console.log("Logo:", Logo)
 
-})();
+};
+generateLogo();
