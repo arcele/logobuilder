@@ -232,5 +232,16 @@ function generateLogo() {
 	});
 	console.log("Logo:", Logo)
   document.getElementById("url").innerHTML = '<a target="_logo" href="' + Logo.url + '">Logo Link</a>'
+
+
+	document.getElementById("backColor").innerText = '#' + Logo.backColor
+	document.getElementById("fontColor").innerText = '#' + Logo.fontColor
+	document.getElementById("fontStroke").innerText = '#' + Logo.fontStroke
+	document.getElementById("backStyle").innerText = Logo.backStyle
+	document.getElementById("stripeColor").innerText = '#' + Logo.stripeColor
+	document.getElementById("letters").innerText = Logo.letters
+	document.getElementById("offsetX").innerText = Logo.offsetX
+	document.getElementById("fontFamily").innerText = Logo.fontFamily
+
 };
 generateLogo();

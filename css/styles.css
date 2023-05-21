@@ -4,3 +4,5 @@ body { background-color:#e0e0e0; font-family: Arial }
 #contact { width:50px; background: #ccc; height:25px; top:0; left:0; position: absolute; text-align: center;}
 #contact a { text-decoration:none; }
 #refresh { font-size:25pt; width:75px; text-align:center; margin:auto; display:block; font-weight:100; cursor: pointer; color:#888; user-select: none; }
+#config { width: 225px; margin:20px auto; border:1px solid #ccc; padding: 8px 10px; }
+#config p span { margin-left: 25px; }
